@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 960px;
+    margin: 100px auto;
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+}
+
+.item {
+    background-color: lightblue;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+}
