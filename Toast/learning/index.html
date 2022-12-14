@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Learning Toast </title>
+    <style>
+        .createBtn {
+            padding: 10px 30px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            color: white;
+            background-color: mediumslateblue;
+        }
+
+        .createBtn:hover{
+            cursor: pointer;
+        }
+
+        .toast{
+            position: fixed;
+            bottom: 10px;
+            right: 15px;
+            background: green;
+            width: 400px;
+            height: 60px;
+            color: white;
+            border-radius: 10px;
+            padding: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 24px;
+            visibility: none;
+            opacity: 0;
+            transition: opacity 200ms, top 200ms, visibility 200ms;
+        }
+
+        .toast--visible  {
+            visibility: visible;
+            opacity: 1;
+        }
+
+
+        input {
+            margin: 10px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: none;
+            margin: none;
+            background-color: lightblue;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <main>
+        <input type="text" placeholder="type toast bg color" id="toastBgColorToast">
+        <input type="text" placeholder="type toast message" id="toastMessage">
+        <button class="createBtn" onclick="notify( document.getElementById('toastBgColorToast').value ,  document.getElementById('toastMessage').value)"> Create community </button>
+    </main>
+
+    <div class="toast">
+        Community has been created
+    </div>
+
+
+    <script>
+        const notify = (color , message) => {
+            const toast = document.querySelector(".toast")
+            toast.classList.add("toast--visible")
+            toast.style.background = color
+            toast.textContent = message
+            setTimeout(() => {
+                toast.classList.remove("toast--visible")
+            }, 1500);
+        }
+
+    </script>
+</body>
+</html>

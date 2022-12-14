@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .modal-container {
+            /* display: none; */
+            pointer-events: none;
+            opacity: 0;
+            background-color: rgba(0, 0, 0, 0.3);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 100%;
+            transition: opacity 0.4s ease;
+        }
+
+        .modal-container.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal {
+            background-color: white;
+            width: 60%;
+            padding: 10px;
+            border-radius: 5px;
+
+        }
+
+    </style>
+</head>
+<body>
+    
+    <main class="w-full h-screen flex justify-center align-center" >
+        <button id="open" class="text-xl"> Create </button>
+    </main>
+
+    <div class="modal-container" id="modal_container">
+        <div class="modal flex flex-col justify-center align-center space-y-4">
+
+            <h1 class="text-5xl"> HELLO MODAL </h1>
+            <button id="close" class="hover:cursor-pointer"> Close </button>
+        </div>
+    </div>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        const openBtn = document.getElementById("open")
+        const modalContainer = document.getElementById("modal_container")
+        const modal = document.getElementsByClassName("modal")
+        const closeBtn = document.getElementById("close")
+
+        openBtn.addEventListener("click", () => {
+            modalContainer.classList.add("show")
+        })
+
+        closeBtn.addEventListener("click", () => {
+            modalContainer.classList.remove("show")
+        })
+
+        modalContainer.addEventListener("click", (e) => {
+            if(e.target !== this) {
+                return
+            } else {
+                modalContainer.classList.remove("show")
+            }
+            
+          
+        })
+
+        
+    </script>
+</body>
+</html>
